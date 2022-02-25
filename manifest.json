@@ -1,0 +1,17 @@
+{
+    "name" : " Jatin Ads Extension",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description" : "Somesdfdsfsdfe",
+    "web_accessible_resources": [{
+        "resources": ["script.js"],
+        "matches": ["<all_urls>"]
+      }],
+    "content_scripts" : [
+        {
+            "js" : ["init.js"],
+            "css": ["style.css"],
+            "matches" : ["<all_urls>"]
+        }
+    ]
+}
