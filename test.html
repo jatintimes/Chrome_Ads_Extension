@@ -25,7 +25,12 @@
 </head>
 
 <body>
-
+    <script>
+        function changecolor() {
+            document.getElementById('div-gpt-ad-1645642362802-4').style.backgroundColor = "red";
+        }
+    </script>
+    <a href="#div-gpt-ad-1645642362802-4" onclick="changecolor()">navigate</a>
     <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eaque dolore quaerat sunt dolorem nesciunt
         repellat nemo unde velit, saepe, quas eum nobis corporis rem nam, quo non nihil libero id iure deserunt. Velit
@@ -225,13 +230,32 @@
     nulla.
     Recusandae, deserunt, fugit maxime ullam libero rerum, unde consequuntur quos corrupti saepe sequi hic assumenda
     quia aliquid!</p>
-    <script>
+    <div id="xsdf"></div>
+    <!-- <script>
+
+        function getdivIds() {
+
+            setTimeout(function () {
+                const df = [];
+                var x = window.googletag.pubads().getSlots().forEach((obj) => {
+                    const f = obj.getSlotElementId();
+                    var tablehtml = ' <a href="#' + f + ' "> ' + f + '</a>'
+                    console.log(f);
+                    df.push(tablehtml);
+                })
+                console.log(df);
+
+                // console.log(x);
+                // var tablehtml = ' <a href="#' + x + ' "onclick="changecolor()">navigate</a>'
+                // document.getElementById("xsdf").innerHTML = tablehtml;
+            }, 5000)
+        }
+
+        getdivIds();
 
 
 
-
-
-    </script>
+    </script> -->
 
 </body>
 
