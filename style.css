@@ -363,6 +363,8 @@
   bottom: 0;
   height: 250px;
   overflow: auto;
+  border: none;
+  background-color: rgb(69, 77, 85);
 }
 
 .control-buttons {
