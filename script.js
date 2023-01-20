@@ -87,10 +87,6 @@ function downloadTableAsExcel() {
 
 }
 
-
-
-
-
 function refreshfunction() {
   wholescript();
 }
@@ -101,6 +97,7 @@ function wholescript() {
     iDiv.id = "block_xyz";
     iDiv.className = "popup";
     iDiv.style.width = "100%";
+    iDiv.style.height = "30px";
     document.getElementsByTagName("body")[0].appendChild(iDiv);
 
     function getSlotTargetValues(obj, keys) {
@@ -152,7 +149,7 @@ function wholescript() {
         }"  onclick="parent.handleScroll(this)">${data}</div>`;
       }
       // checking data type
-      var type = data.length ? "array" : "object";
+      var type = data?.length ? "array" : "object";
       var content = "";
 
       for (let i in data) {
@@ -193,21 +190,26 @@ function wholescript() {
             { name: "size", value: JSON.stringify(obj.getSizes()) },
             {
               name: "creativeId",
-              // change value to not found if error
+              // if typerror then value stringify to not found
 
-              value: JSON.stringify(obj.getResponseInformation().creativeId) || "not found",
+
+
+              value: JSON.stringify(obj?.getResponseInformation()?.creativeId || {error: "not found"}) ,
             },
             {
               name: "lineItemId",
-              value: JSON.stringify(obj.getResponseInformation().lineItemId)|| "not found",
+              value: JSON.stringify(obj?.getResponseInformation()?.lineItemId || {error: "not found"}) ,
+
             },
             {
               name: "campaignId",
-              value: JSON.stringify(obj.getResponseInformation().campaignId)|| "not found",
+              value: JSON.stringify(obj?.getResponseInformation()?.campaignId || {error: "not found"}) ,
+
             },
             {
               name: "advertiserId",
-              value: JSON.stringify(obj.getResponseInformation().advertiserId)|| "not found",
+              value: JSON.stringify(obj?.getResponseInformation()?.advertiserId || {error: "not found"}) ,
+
             },
           ];
           pageAds.push({
