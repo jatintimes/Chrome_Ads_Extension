@@ -1,0 +1,101 @@
+
+
+1. Search for Function :
+
+
+IF FUNCTION is not present - NO Header bidding detected
+
+var refInterval = setInterval(function () {
+    if (typeof pbjs != 'undefined') {
+
+
+// THIS WILL SHOW ALL THE AD UNITS THAT ARE DEFINED IN THE PAGE FOR HB CONFIG
+
+(function() {
+  function forEach(responses, cb) {
+    Object.keys(responses).forEach(function(adUnitCode) {
+      var response = responses[adUnitCode];
+      response.bids.forEach(function(bid) {
+        cb(adUnitCode, bid);
+      });
+    });
+  }
+  var winners = pbjs.getAllWinningBids();
+  var output = [];
+  forEach(pbjs.getBidResponses(), function(code, bid) {
+    output.push({
+      bid: bid,
+      adunit: code,
+      adId: bid.adId,
+      bidder: bid.bidder,
+      time: bid.timeToRespond,
+      cpm: bid.cpm,
+      msg: bid.statusMessage,
+      rendered: !!winners.find(function(winner) {
+        return winner.adId==bid.adId;
+      })
+    });
+  });
+  forEach(pbjs.getNoBids && pbjs.getNoBids() || {}, function(code, bid) {
+    output.push({
+      msg: "no bid",
+      adunit: code,
+      adId: bid.bidId,
+      bidder: bid.bidder
+    });
+  });
+  if (output.length) {
+    if (console.table) {
+      console.table(output);
+    } else {
+      for (var j = 0; j < output.length; j++) {
+        console.log(output[j]);
+      }
+    }
+  } else {
+    console.warn('NO prebid responses');
+  }
+})();
+
+// GET WINNING BID FOR EACH AD UNIT
+
+var bids = pbjs.getHighestCpmBids();
+var output = [];
+for (var i = 0; i < bids.length; i++) {
+    var b = bids[i];
+    output.push({
+        'adunit': b.adUnitCode, 'adId': b.adId, 'bidder': b.bidder,
+        'time': b.timeToRespond, 'cpm': b.cpm
+    });
+}
+if (output.length) {
+    if (console.table) {
+        console.table(output);
+    } else {
+        for (var j = 0; j < output.length; j++) {
+            console.log(output[j]);
+        }
+    }
+} else {
+    console.warn('No prebid winners');
+}
+
+}
+
+}, 300);
+
+
+
+AdSense
+2. Search for url is loaded  :
+
+if below url is loaded - AdSense is present
+
+https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+
+Then :
+document.querySelector('ins.adsbygoogle') !== null
+data-ad-client = Value
+data-ad-slot = Value
+
+1. ca-pub-3368110899505028 : 2877702019 - Where this ad is placed - 2877702019
