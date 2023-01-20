@@ -193,19 +193,21 @@ function wholescript() {
             { name: "size", value: JSON.stringify(obj.getSizes()) },
             {
               name: "creativeId",
-              value: JSON.stringify(obj.getResponseInformation().creativeId),
+              // change value to not found if error
+
+              value: JSON.stringify(obj.getResponseInformation().creativeId) || "not found",
             },
             {
               name: "lineItemId",
-              value: JSON.stringify(obj.getResponseInformation().lineItemId),
+              value: JSON.stringify(obj.getResponseInformation().lineItemId)|| "not found",
             },
             {
               name: "campaignId",
-              value: JSON.stringify(obj.getResponseInformation().campaignId),
+              value: JSON.stringify(obj.getResponseInformation().campaignId)|| "not found",
             },
             {
               name: "advertiserId",
-              value: JSON.stringify(obj.getResponseInformation().advertiserId),
+              value: JSON.stringify(obj.getResponseInformation().advertiserId)|| "not found",
             },
           ];
           pageAds.push({
