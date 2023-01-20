@@ -1,5 +1,5 @@
 # ADS Flame - Google ADS Inspector
-By - Jatin Yadav & Pankaj Sharma 
+By - Jatin Yadav & Akrit Singh 
 
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
