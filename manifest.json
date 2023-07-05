@@ -16,7 +16,8 @@
         {
             "js" : ["init.js"],
             "css": ["style.css"],
-            "matches" : ["<all_urls>"]
+            "matches" : ["<all_urls>"],
+            "run_at": "document_start"
         }
     ]
 }
